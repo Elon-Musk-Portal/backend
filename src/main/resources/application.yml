@@ -11,3 +11,9 @@ spring:
 server:
   servlet:
     contextPath: /api
+
+twitter:
+  api_key: ${TWITTER_API_KEY}
+  secret_key: ${TWITTER_SECRET_KEY}
+  access_token: ${TWITTER_ACCESS_TOKEN}
+  secret_token: ${TWITTER_SECRET_TOKEN}
