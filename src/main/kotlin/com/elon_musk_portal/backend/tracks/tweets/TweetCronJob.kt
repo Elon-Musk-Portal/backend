@@ -21,15 +21,15 @@ class TweetCronJob(
         if (responseList.isNotEmpty()) {
             val lastTweetId = responseList.maxByOrNull { it.createdAt }!!.id
             logger.info("Last tweet from twitter with id $lastTweetId")
-            tweetRepository.findById(lastTweetId).ifEmpty {
-                addUsername(lastTweetId)
+            tweetRepository.findTweetByTweetId(lastTweetId).ifEmpty {
+                saveNewTweet(lastTweetId)
             }
         } else {
             logger.info("Response from twitter was empty")
         }
     }
 
-    private fun addUsername(lastId: Long) {
+    private fun saveNewTweet(lastId: Long) {
         val link = "https://twitter.com/$USERNAME/status/$lastId"
         val tweet = Tweet(
             tweetId = lastId,
