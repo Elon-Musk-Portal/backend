@@ -1,6 +1,7 @@
 package com.elon_musk_portal.backend.tracks.tweets
 
 import org.hibernate.annotations.CreationTimestamp
+import org.hibernate.annotations.UpdateTimestamp
 import java.time.LocalDateTime
 import javax.persistence.*
 
@@ -18,9 +19,13 @@ data class Tweet(
     @Column(name = "link")
     val link: String = "",
 
-    @Column(name = "created")
+    @Column(name = "created_date")
     @CreationTimestamp
     val created: LocalDateTime = LocalDateTime.now(),
+
+    @Column(name = "updated_date")
+    @UpdateTimestamp
+    val updated: LocalDateTime = LocalDateTime.now(),
 
     @Column(name = "tags")
     val tags: String = "",
