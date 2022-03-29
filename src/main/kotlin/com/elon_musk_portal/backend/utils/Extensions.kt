@@ -4,7 +4,7 @@ import java.util.*
 
 object Extensions {
 
-    fun <T> Optional<T>.isEmpty(
+    fun <T> Optional<T>.ifEmpty(
         action: () -> Unit,
     ) {
         if (this.isEmpty) action.invoke()

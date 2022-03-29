@@ -1,6 +1,6 @@
 package com.elon_musk_portal.backend.tracks.tweets
 
-import com.elon_musk_portal.backend.utils.Extensions.isEmpty
+import com.elon_musk_portal.backend.utils.Extensions.ifEmpty
 import org.slf4j.LoggerFactory
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
@@ -21,7 +21,7 @@ class TweetCronJob(
         if (responseList.isNotEmpty()) {
             val lastTweetId = responseList.maxByOrNull { it.createdAt }!!.id
             logger.info("Last tweet from twitter with id $lastTweetId")
-            tweetRepository.findById(lastTweetId).isEmpty {
+            tweetRepository.findById(lastTweetId).ifEmpty {
                 addUsername(lastTweetId)
             }
         } else {
@@ -32,7 +32,7 @@ class TweetCronJob(
     private fun addUsername(lastId: Long) {
         val link = "https://twitter.com/$USERNAME/status/$lastId"
         val tweet = Tweet(
-            id = lastId,
+            tweetId = lastId,
             link = link
         )
         tweetRepository.save(tweet)
