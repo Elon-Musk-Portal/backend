@@ -14,10 +14,7 @@ data class Tweet(
     val id: Long = 0,
 
     @Column(name = "tweet_id")
-    val tweetId: Long = 0,
-
-    @Column(name = "link")
-    val link: String = "",
+    val tweetId: String = "",
 
     @Column(name = "created_date")
     @CreationTimestamp

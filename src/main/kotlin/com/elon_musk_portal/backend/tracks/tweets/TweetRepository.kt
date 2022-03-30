@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 import java.util.Optional
 
 interface TweetRepository: JpaRepository<Tweet, Long>{
-    fun findTweetByTweetId(tweetId: Long): Optional<Tweet>
+    fun findTweetByTweetId(tweetId: String): Optional<Tweet>
 }

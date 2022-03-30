@@ -19,7 +19,7 @@ class TweetCronJob(
         logger.info("Start update twitter")
         val responseList = twitter.getUserTimeline(USERNAME)
         if (responseList.isNotEmpty()) {
-            val lastTweetId = responseList.maxByOrNull { it.createdAt }!!.id
+            val lastTweetId = responseList.maxByOrNull { it.createdAt }!!.id.toString()
             logger.info("Last tweet from twitter with id $lastTweetId")
             tweetRepository.findTweetByTweetId(lastTweetId).ifEmpty {
                 saveNewTweet(lastTweetId)
@@ -29,11 +29,9 @@ class TweetCronJob(
         }
     }
 
-    private fun saveNewTweet(lastId: Long) {
-        val link = "https://twitter.com/$USERNAME/status/$lastId"
+    private fun saveNewTweet(lastId: String) {
         val tweet = Tweet(
             tweetId = lastId,
-            link = link
         )
         tweetRepository.save(tweet)
         logger.info("New tweet with id $lastId")
