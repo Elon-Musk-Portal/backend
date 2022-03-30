@@ -15,7 +15,7 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
     ports:
-      - "5433:5433"
+      - "5433:5432"
 
   portal:
     container_name: portal
