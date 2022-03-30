@@ -33,6 +33,8 @@ services:
       - TWITTER_SECRET_KEY
       - TWITTER_ACCESS_TOKEN
       - TWITTER_SECRET_TOKEN
+    ports:
+      - "8080:8080"
     depends_on:
       - portal-db
 
