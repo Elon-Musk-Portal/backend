@@ -16,10 +16,7 @@ class WebSecurity : WebSecurityConfigurerAdapter(), WebMvcConfigurer {
     override fun addCorsMappings(registry: CorsRegistry) {
         registry.addMapping("/**")
             .allowedOrigins("http://localhost:3000")
-            .allowedOrigins("http://localhost:443")
-            .allowedOrigins("http://localhost")
             .allowedOrigins("https://programistich.com:3000")
-            .allowedOrigins("https://programistich.com:443")
             .allowedOrigins("https://programistich.com")
             .allowedMethods("*");
     }
