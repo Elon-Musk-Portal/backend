@@ -18,6 +18,7 @@ class WebSecurity : WebSecurityConfigurerAdapter(), WebMvcConfigurer {
             .allowedOrigins(
                 "http://localhost:3000",
                 "https://programistich.com:3000",
+                "http://20.113.186.240:3000",
                 "https://programistich.com"
             )
             .allowedMethods("*");
