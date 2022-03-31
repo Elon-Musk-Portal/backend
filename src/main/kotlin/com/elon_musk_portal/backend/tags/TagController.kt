@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 class TagController {
 
     @GetMapping
-    fun getTags(): List<String> {
-        return TagValue.values().map { it.name }
+    fun getTags(): List<Pair<String, String>> {
+        return TagValue.values().map { Pair(it.name, it.value) }
     }
 }
