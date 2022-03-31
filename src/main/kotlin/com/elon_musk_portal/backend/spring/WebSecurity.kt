@@ -17,9 +17,8 @@ class WebSecurity : WebSecurityConfigurerAdapter(), WebMvcConfigurer {
         registry.addMapping("/**")
             .allowedOrigins(
                 "http://localhost:3000",
-                "https://programistich.com:3000",
-                "http://20.113.186.240:3000",
-                "https://programistich.com"
+                "https://programistich.com",
+                "http://20.113.186.240",
             )
             .allowedMethods("*");
     }
