@@ -38,8 +38,8 @@ services:
     depends_on:
       - portal-db
   nginx:
+    container_name: nginx-backend
     image: nginx:1.21.6
-    container_name: nginx
     ports:
       - "80:80"
     restart: always
