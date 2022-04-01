@@ -37,16 +37,6 @@ services:
       - "8080:8080"
     depends_on:
       - portal-db
-#  nginx:
-#    container_name: nginx-backend
-#    image: nginx:1.21.6
-#    ports:
-#      - "81:80"
-#    restart: always
-#    volumes:
-#      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-#    depends_on:
-#      - portal
 
 volumes:
   postgres-data:
